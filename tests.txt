@@ -1,8 +1,8 @@
 - turn right
-N -> E
-E -> S
-S -> W
-W -> N
+@N -> E
+@E -> S
+@S -> W
+@W -> N
 - turn left
 N -> W
 W -> S
