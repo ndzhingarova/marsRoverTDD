@@ -4,10 +4,10 @@
 @S -> W
 @W -> N
 - turn left
-N -> W
-W -> S
-S -> E
-E -> N
+@N -> W
+@W -> S
+@S -> E
+@E -> N
 - move forward
 10,10,N -> 10,11,N
 10,10,E -> 11,10,E

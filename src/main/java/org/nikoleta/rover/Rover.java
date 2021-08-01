@@ -5,9 +5,9 @@ import java.util.List;
 
 public class Rover {
 
-
     private String direction;
-    private List<String> compass = Arrays.asList("N", "E", "S", "W");
+    private final List<String> compass = Arrays.asList("N", "E", "S", "W");
+    private final List<String> reverseCompass = Arrays.asList("N", "W", "S", "E");
 
     public Rover(String direction) {
 
@@ -19,8 +19,16 @@ public class Rover {
     }
 
     public void go(String instructions) {
-        int currentDirectionIndex = compass.indexOf(this.direction);
 
-        this.direction = compass.get((currentDirectionIndex +1) % 4);
+        if (instructions.equals("R")) {
+            turn(compass);
+        } else {
+            turn(reverseCompass);
+        }
+    }
+
+    private void turn(List<String> compass) {
+        int currentDirectionIndex = compass.indexOf(this.direction);
+        this.direction = compass.get((currentDirectionIndex + 1) % 4);
     }
 }
