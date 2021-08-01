@@ -1,0 +1,27 @@
+- turn right
+N -> E
+E -> S
+S -> W
+W -> N
+- turn left
+N -> W
+W -> S
+S -> E
+E -> N
+- move forward
+10,10,N -> 10,11,N
+10,10,E -> 11,10,E
+10,10,W -> 9,10,W
+10,10,S -> 10,9,S
+- move backward
+10,10,N -> 10,9,N
+10,10,E -> 9,10,E
+10,10,W -> 11,10,W
+10,10,S -> 10,11,S
+- process sequence of instructions
+10,10,N
+FRF
+11,11,E
+- throws exception on invalid instruction
+A
+throw InvalidInstructionException
