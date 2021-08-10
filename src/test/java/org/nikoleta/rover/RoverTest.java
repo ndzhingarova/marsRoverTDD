@@ -25,34 +25,9 @@ public class RoverTest {
         Assertions.assertEquals(expectedDirection, rover.getDirection());
     }
 
-    @Test
-    public void moveForwardNorthDirection() {
-
-        Rover rover = new Rover(10,10,"N");
-        rover.go("F");
-
-        Assertions.assertEquals(11, rover.getPositionY());
-    }
-
-    @Test
-    public void moveForwardEastDirection() {
-        Rover rover = new Rover(10,10,"E");
-        rover.go("F");
-
-        Assertions.assertEquals(11, rover.getPositionX());
-    }
-
-    @Test
-    public void moveForwardWestDirection() {
-        Rover rover = new Rover(10,10,"W");
-        rover.go("F");
-
-        Assertions.assertEquals(9, rover.getPositionX());
-    }
-
     @ParameterizedTest
     @CsvSource({"W,9", "E,11"})
-    public void moveForwardYAxis(String direction, int expectedPosition) {
+    public void moveForwardXAxis(String direction, int expectedPosition) {
         Rover rover = new Rover(10,10, direction);
         rover.go("F");
 
@@ -61,10 +36,28 @@ public class RoverTest {
 
     @ParameterizedTest
     @CsvSource({"S,9", "N,11"})
-    public void moveForwardXAxis(String direction, int expectedPosition) {
+    public void moveForwardYAxis(String direction, int expectedPosition) {
         Rover rover = new Rover(10,10, direction);
         rover.go("F");
 
         Assertions.assertEquals(expectedPosition, rover.getPositionY());
+    }
+
+    @ParameterizedTest
+    @CsvSource({"N,9","S,11"})
+    public void moveBackwardYAxis(String direction, int expectedPosition) {
+        Rover rover = new Rover(10,10, direction);
+        rover.go("B");
+
+        Assertions.assertEquals(expectedPosition, rover.getPositionY());
+    }
+
+    @ParameterizedTest
+    @CsvSource({"E,9","W,11"})
+    public void moveBackwardXAxis(String direction, int expectedPosition) {
+        Rover rover = new Rover(10,10, direction);
+        rover.go("B");
+
+        Assertions.assertEquals(expectedPosition, rover.getPositionX());
     }
 }

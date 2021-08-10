@@ -34,7 +34,7 @@ public class Rover {
             turn(compass);
         } else if (instructions.equals("L")){
             turn(reverseCompass);
-        } else {
+        } else if (instructions.equals("F")){
             if (this.direction.equals("N")) {
                 this.positionY = this.positionY + 1;
             } else if (this.direction.equals("E")) {
@@ -44,7 +44,16 @@ public class Rover {
             } else {
                 this.positionY = this.positionY -1;
             }
-
+        } else {
+            if (this.direction.equals("N")) {
+                this.positionY = this.positionY - 1;
+            } else if (this.direction.equals("S")) {
+                this.positionY = this.positionY + 1;
+            } else if (this.direction.equals("E")) {
+                this.positionX = this.positionX - 1;
+            } else {
+                this.positionX = this.positionX + 1;
+            }
         }
     }
 
