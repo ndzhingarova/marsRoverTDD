@@ -29,20 +29,23 @@ public class Rover {
     }
 
     public void go(String instructions) {
+        String[] instructionsArray = instructions.split("");
 
-        switch (instructions) {
-            case "R":
-                turn(compass);
-                break;
-            case "L":
-                turn(reverseCompass);
-                break;
-            case "F":
-                moveForward();
-                break;
-            default:
-                moveBackward();
-                break;
+        for (String instruction : instructionsArray) {
+            switch (instruction) {
+                case "R":
+                    turn(compass);
+                    break;
+                case "L":
+                    turn(reverseCompass);
+                    break;
+                case "F":
+                    moveForward();
+                    break;
+                default:
+                    moveBackward();
+                    break;
+            }
         }
     }
 

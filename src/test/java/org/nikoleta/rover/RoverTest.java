@@ -60,4 +60,14 @@ public class RoverTest {
 
         Assertions.assertEquals(expectedPosition, rover.getPositionX());
     }
+
+    @Test
+    public void processInstructionSequence() {
+        Rover rover = new Rover(10,10,"N");
+        rover.go("FRF");
+
+        Assertions.assertEquals(11, rover.getPositionX());
+        Assertions.assertEquals(11, rover.getPositionY());
+        Assertions.assertEquals("E", rover.getDirection());
+    }
 }
