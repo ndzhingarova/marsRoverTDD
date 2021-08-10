@@ -30,30 +30,53 @@ public class Rover {
 
     public void go(String instructions) {
 
-        if (instructions.equals("R")) {
-            turn(compass);
-        } else if (instructions.equals("L")){
-            turn(reverseCompass);
-        } else if (instructions.equals("F")){
-            if (this.direction.equals("N")) {
-                this.positionY = this.positionY + 1;
-            } else if (this.direction.equals("E")) {
-                this.positionX = this.positionX + 1;
-            } else if (this.direction.equals("W")) {
-                this.positionX = this.positionX - 1;
-            } else {
-                this.positionY = this.positionY -1;
-            }
-        } else {
-            if (this.direction.equals("N")) {
+        switch (instructions) {
+            case "R":
+                turn(compass);
+                break;
+            case "L":
+                turn(reverseCompass);
+                break;
+            case "F":
+                moveForward();
+                break;
+            default:
+                moveBackward();
+                break;
+        }
+    }
+
+    private void moveBackward() {
+        switch (this.direction) {
+            case "N":
                 this.positionY = this.positionY - 1;
-            } else if (this.direction.equals("S")) {
+                break;
+            case "S":
                 this.positionY = this.positionY + 1;
-            } else if (this.direction.equals("E")) {
+                break;
+            case "E":
                 this.positionX = this.positionX - 1;
-            } else {
+                break;
+            default:
                 this.positionX = this.positionX + 1;
-            }
+                break;
+        }
+    }
+
+    private void moveForward() {
+        switch (this.direction) {
+            case "N":
+                this.positionY = this.positionY + 1;
+                break;
+            case "E":
+                this.positionX = this.positionX + 1;
+                break;
+            case "W":
+                this.positionX = this.positionX - 1;
+                break;
+            default:
+                this.positionY = this.positionY - 1;
+                break;
         }
     }
 
