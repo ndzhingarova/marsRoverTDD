@@ -19,9 +19,6 @@
 @10,10,W -> 11,10,W
 @10,10,S -> 10,11,S
 - process sequence of instructions
-10,10,N
-FRF
-11,11,E
+@10,10,N -> FRF -> 11,11,E
 - throws exception on invalid instruction
-A
-throw InvalidInstructionException
+@A -> throw InvalidInstructionException

@@ -70,4 +70,11 @@ public class RoverTest {
         Assertions.assertEquals(11, rover.getPositionY());
         Assertions.assertEquals("E", rover.getDirection());
     }
+    @Test
+    public void throwsOnInvalidInstruction() {
+        Rover rover = new Rover(10,10,"N");
+
+        Assertions.assertThrows(InvalidInstructionException.class,
+                () ->rover.go("A"));
+    }
 }

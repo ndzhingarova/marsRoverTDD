@@ -42,9 +42,11 @@ public class Rover {
                 case "F":
                     moveForward();
                     break;
-                default:
+                case "B":
                     moveBackward();
                     break;
+                default:
+                    throw new InvalidInstructionException();
             }
         }
     }
