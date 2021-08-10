@@ -40,7 +40,9 @@ public class Rover {
             } else if (this.direction.equals("E")) {
                 this.positionX = this.positionX + 1;
             } else if (this.direction.equals("W")) {
-                this.positionY = this.positionY - 1;
+                this.positionX = this.positionX - 1;
+            } else {
+                this.positionY = this.positionY -1;
             }
 
         }

@@ -47,6 +47,24 @@ public class RoverTest {
         Rover rover = new Rover(10,10,"W");
         rover.go("F");
 
-        Assertions.assertEquals(9, rover.getPositionY());
+        Assertions.assertEquals(9, rover.getPositionX());
+    }
+
+    @ParameterizedTest
+    @CsvSource({"W,9", "E,11"})
+    public void moveForwardYAxis(String direction, int expectedPosition) {
+        Rover rover = new Rover(10,10, direction);
+        rover.go("F");
+
+        Assertions.assertEquals(expectedPosition, rover.getPositionX());
+    }
+
+    @ParameterizedTest
+    @CsvSource({"S,9", "N,11"})
+    public void moveForwardXAxis(String direction, int expectedPosition) {
+        Rover rover = new Rover(10,10, direction);
+        rover.go("F");
+
+        Assertions.assertEquals(expectedPosition, rover.getPositionY());
     }
 }
