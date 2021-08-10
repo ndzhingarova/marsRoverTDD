@@ -1,6 +1,7 @@
 package org.nikoleta.rover;
 
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -22,5 +23,30 @@ public class RoverTest {
         rover.go("L");
 
         Assertions.assertEquals(expectedDirection, rover.getDirection());
+    }
+
+    @Test
+    public void moveForwardNorthDirection() {
+
+        Rover rover = new Rover(10,10,"N");
+        rover.go("F");
+
+        Assertions.assertEquals(11, rover.getPositionY());
+    }
+
+    @Test
+    public void moveForwardEastDirection() {
+        Rover rover = new Rover(10,10,"E");
+        rover.go("F");
+
+        Assertions.assertEquals(11, rover.getPositionX());
+    }
+
+    @Test
+    public void moveForwardWestDirection() {
+        Rover rover = new Rover(10,10,"W");
+        rover.go("F");
+
+        Assertions.assertEquals(9, rover.getPositionY());
     }
 }
